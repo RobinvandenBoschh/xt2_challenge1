@@ -80,11 +80,27 @@
         margin-left: 4%;
     }
 
+    .starship {
+        height: 60%;
+    }
+
     .frontButton {
         display: block;
     }
 
     .backButton {
+        display: none;
+    }
+
+    .myWebsite {
+        display: none;
+    }
+
+    .slideForMore {
+        display: block;
+    }
+
+    .tapForMore, .hoverForMore {
         display: none;
     }
 }

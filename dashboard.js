@@ -10,9 +10,14 @@ function dashboard(id, fData){
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-        hGDim.w = 250 - hGDim.l - hGDim.r, 
-        hGDim.h = 200 - hGDim.t - hGDim.b;
-            
+        if(screen.width > 1439) {
+            hGDim.w = 400 - hGDim.l - hGDim.r, 
+            hGDim.h = 200 - hGDim.t - hGDim.b;
+        } else {
+            hGDim.w = 250 - hGDim.l - hGDim.r, 
+            hGDim.h = 200 - hGDim.t - hGDim.b;
+        }
+
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
             .attr("width", hGDim.w + hGDim.l + hGDim.r)
@@ -98,7 +103,55 @@ function dashboard(id, fData){
     // function to handle pieChart.
     function pieChart(pD){
         if(screen.width < 376) { // ik weet dat ik alleen de eerste regel heb aangepast, maar met zo'n ingewikkelde functie wilde ik het zekere voor het onzekere nemen haha
-            var pC ={},    pieDim ={w:100, h: 100};
+            var pC ={},    pieDim ={w:100, h: 100};                    
+            pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
+
+            // create svg for pie chart.
+            var piesvg = d3.select(id).append("svg")
+                .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
+                .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
+            
+            // create function to draw the arcs of the pie slices.
+            var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
+
+            // create a function to compute the pie slice angles.
+            var pie = d3.layout.pie().sort(null).value(function(d) { return d.freq; });
+
+            // Draw the pie slices.
+            piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
+                .each(function(d) { this._current = d; })
+                .style("fill", function(d) { return segColor(d.data.type); })
+                .on("mouseover",mouseover).on("mouseout",mouseout);
+
+            // create function to update pie-chart. This will be used by histogram.
+            pC.update = function(nD){
+                piesvg.selectAll("path").data(pie(nD)).transition().duration(500)
+                    .attrTween("d", arcTween);
+            }        
+            // Utility function to be called on mouseover a pie slice.
+            function mouseover(d){
+                // call the update function of histogram with new data.
+                hG.update(fData.map(function(v){ 
+                    return [v.Flight,v.freq[d.data.type]];}),segColor(d.data.type));
+            }
+            //Utility function to be called on mouseout a pie slice.
+            function mouseout(d){
+                // call the update function of histogram with all data.
+                hG.update(fData.map(function(v){
+                    return [v.Flight,v.total];}), barColor);
+            }
+            // Animating the pie-slice requiring a custom function which specifies
+            // how the intermediate paths should be drawn.
+            function arcTween(a) {
+                var i = d3.interpolate(this._current, a);
+                this._current = i(0);
+                return function(t) { return arc(i(t));    };
+            }    
+            return pC;
+        } 
+
+        else if(screen.width > 1439) {
+            var pC ={},    pieDim ={w:150, h: 150};
             pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
                     
             // create svg for pie chart.
@@ -143,7 +196,9 @@ function dashboard(id, fData){
                 return function(t) { return arc(i(t));    };
             }    
             return pC;
-        } else {
+        } 
+        
+        else {
             var pC ={},    pieDim ={w:150, h: 150};
             pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
                     

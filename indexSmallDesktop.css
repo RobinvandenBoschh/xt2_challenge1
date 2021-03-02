@@ -79,11 +79,23 @@
         height: 50%;
     }
 
+    .starship {
+        height: 60%;
+    }
+
     .frontButton {
         display: none;
     }
 
     .backButton {
         display: block;
+    }
+
+    .hoverForMore {
+        display: block;
+    }
+
+    .slideForMore, .tapForMore {
+        display: none;
     }
 }

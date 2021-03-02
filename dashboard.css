@@ -117,7 +117,8 @@ path:hover {
 /* large desktop */
 @media only screen and (min-device-width: 1440px) {
     #dashboard {
-        height: 50%;
+        height: 80%;
+        width: 100%;
         margin-top: 5%;
     }
 
@@ -133,6 +134,6 @@ path:hover {
     
     .legendFreq, .legendPerc {
         box-align: right;
-        width: 7vw;
+        width: 10vw;
     }
 }

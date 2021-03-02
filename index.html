@@ -1,84 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>                                                                             <!-- Ik heb voor deze website een README geschreven, met algemene opmerkingen over de code -->
+<html lang="en">                                                                            <!-- Deze website is in het Engels geschreven (aangezien SpaceX een Amerikaans bedrijf is). -->
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" type="image/x-icon" href="images/spacexicon1.ico" />
-        <link rel="stylesheet" href="index.css" type="text/css" />
-        <link rel="stylesheet" href="indexSmartphone.css" type="text/css" />
-        <link rel="stylesheet" href="indexTablet.css" type="text/css" />
-        <link rel="stylesheet" href="indexSmallDesktop.css" type="text/css" />
-        <link rel="stylesheet" href="indexLargeDesktop.css" type="text/css" />
-        <link rel="stylesheet" href="fonts.css" type="text/css" />
-        <link rel="stylesheet" href="navbar.css" type="text/css" />
-        <link rel="stylesheet" href="scrollbar.css" type="text/css" />
-        <link rel="stylesheet" href="dashboard.css" type="text/css" />
-        <link rel="stylesheet" href="pieChart.css" type="text/css" />
-        <title>Dashboard | Interplanetary Transport System Interface by SpaceX</title>
-        <!--<script src="https://d3js.org/d3.v6.min.js"></script>-->
-        <script src="https://d3js.org/d3.v3.min.js"></script>
-        <script src="typewriter.js"></script>
-        <script src="navbar.js"></script>
-        <script src="countdown.js"></script>
-        <script src="calculator.js"></script>
+        <meta charset="utf-8" />                                                            <!-- Op deze website wordt de utf-8 character set gebruikt. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />            <!-- Standaard schaling wordt gebruikt op deze website. -->
+        <link rel="shortcut icon" type="image/x-icon" href="images/spacexicon1.ico" />      <!-- Dit zorgt dat spacexicon1.ico het plaatje wordt dat in het tabblad te zien is. -->
+        <!-- Hieronder staan alle gebruikte CSS style sheets gelinkt: -->
+        <link rel="stylesheet" href="index.css" type="text/css" />                          <!-- Dit is de algemene stylesheet met de opmaak die voor elk scherm hetzelfde is. -->
+        <link rel="stylesheet" href="indexSmartphone.css" type="text/css" />                <!-- Dit zijn alle regels CSS waarmee de opmaak voor smartphone (iPhone X (w: 375px, h: 812px)) schermen afwijken van de algemene CSS in index.css. -->
+        <link rel="stylesheet" href="indexTablet.css" type="text/css" />                    <!-- Dit zijn alle regels CSS waarmee de opmaak voor tablet (iPad (w: 768px, h: 1024px)) schermen afwijken van de algemene CSS in index.css. -->
+        <link rel="stylesheet" href="indexSmallDesktop.css" type="text/css" />              <!-- Dit zijn alle regels CSS waarmee de opmaak voor kleine desktop (Laptop with MDPI screen (w: 1280px, h: 800px)) schermen afwijken van de algemene CSS in index.css. -->
+        <link rel="stylesheet" href="indexLargeDesktop.css" type="text/css" />              <!-- Dit zijn alle regels CSS waarmee de opmaak voor grote desktop (Laptop with HiDPI screen (w: 1440, h: 900)) schermen afwijken van de algemene CSS in index.css. -->
+        <link rel="stylesheet" href="fonts.css" type="text/css" />                          <!-- Dit zijn alle regels CSS die betrekking hebben op de lettertypes en de opmaak ervan (e.g. lettertype, kleur, grootte, etc.). -->
+        <link rel="stylesheet" href="navbar.css" type="text/css" />                         <!-- Dit zijn alle regels CSS voor de opmaak van de navigatiebalk. Dit staat in een aparte file omdat dit losstaat van de rest van de pagina opmaak. -->
+        <link rel="stylesheet" href="scrollbar.css" type="text/css" />                      <!-- Dit zijn alle regels CSS voor de opmaak van de scrollbalk. Dit heeft verder niets te maken met de opmaak van de rest van de pagina, dus staat het in een apart bestand voor de netheid en het overzicht. -->
+        <link rel="stylesheet" href="dashboard.css" type="text/css" />                      <!-- Dit zijn alle regels CSS voor de opmaak van de dashboard grafiek. Het is een losstaand iets, vandaar dat het in een aparte file staat. Hierdoor raakt het niet in de war met de rest van de opmaak. -->
+        <link rel="stylesheet" href="pieChart.css" type="text/css" />                       <!-- -->
+        <title>Dashboard | Interplanetary Transport System Interface by SpaceX</title>      <!-- Dit is de tekst die in het tabblad in de browser te zien is -->
+        <!-- Hieronder staan alle gebruikte JavaScript files gelinkt: -->
+        <!--<script src="https://d3js.org/d3.v6.min.js"></script>-->                        <!-- Dit is de nieuwste versie van D3, maar de dashboard chart die ik gebruikt heb is gemaakt met D3 versie 3 en ik weet niet precies wat er veranderd is dus ik heb voor de zekerheid maar versie 3 gebruikt uiteindelijk. -->
+        <script src="https://d3js.org/d3.v3.min.js"></script>                               <!-- Dit is de versie 3 waar ik het hierboven over had. -->
+        <script src="typewriter.js"></script>                                               <!-- Deze JavaScript functie die zorgt dat de hoofdtitel en de introductie tekst letter voor letter tevoorschijn komen heb ik in een aparte file gezet voor de netheid en het overzicht. -->
+        <script src="navbar.js"></script>                                                   <!-- De JavaScript functie voor de navigatiebalk heb ik voor het overzicht en de netheid van de code in een aparte file gezet. -->
+        <script src="mobileNavbar.js"></script>                                             <!-- De JavaScript functie die ik heb geschreven voor het mobiele navigatiemenu -->
+        <script src="countdown.js"></script>                                                <!-- Ik heb de JavaScript voor de countdown in een aparte file gezet, dat is wel zo netjes en overzichtelijk. -->
+        <script src="calculator.js"></script>                                               <!-- -->
     </head>
     <body>
-        <nav id="navbar">
-            <a id="home" href="#background1">Home</a>
-            <a href="#background2">Data</a>
-            <a href="#background3">Launch</a>
+        <nav id="navbar">                                                                   <!-- Dit is de navigatiebalk. Het id wordt gebruikt om de functie van het in en uit beeld schuiven van de balk te laten werken (ik heb de functie gemaakt toen deze tag nog een div was, dus vandaar). Deze tag kan gezien worden als container voor de drie linkjes die een snelkoppeling zijn naar de drie delen van de pagina. -->
+            <a id="home" href="#background1">Home</a>                                       <!-- Dit is een link naar het bovenste deel van de pagina (overlapping in functie met het SpaceX logo; het is aan de gebruiker om te bepalen wat het prettigste is om te gebruiken en weglaten kan mogelijk verwarring veroorzaken). -->
+            <a href="#background2">Data</a>                                                 <!-- Dit is een link naar het middelste deel van de pagina. -->
+            <a href="#background3">Launch</a>                                               <!-- Dit is een link naar het onderste deel van de pagina. -->
         </nav>
-        <a href="#background1"><img id="spacexLogo" src="images/spacex2.png" alt="SpaceX Logo" title="Home" /></a>
+        <nav id="mobileNavbar">
+            <a id="home" href="#background1" onclick="closeNav();">Home</a>
+            <a href="#background2" onclick="closeNav();">Data</a>
+            <a href="#background3" onclick="closeNav();">Launch</a>
+        </nav>
+        <div class="iconContainer" onclick="toggleIcon(this); openNav(this);">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <a href="#background1"><img id="spacexLogo" src="images/spacex2.png" alt="SpaceX Logo" title="Home" /></a>                                      <!-- De navigatiebalk schuift uit het scherm bij het scrollen, maar het logo van SpaceX moet wel blijven staan. Vandaar dat deze regel code, dat eigenlijk bij de navigatiebalk hoort, buiten de tag nav staat en dus blijft staan wanneer de navigatiebalk verdwijnt. -->
         
-        <main>
-            <section class="background" id="background1">
-                <h1 id="mainTitle"></h1>
-                <p id="introText"></p>
-                <a href="#background2"><img id="arrowDown" src="images/arrowdown1.gif" alt="Arrow down" title="Scroll down for more inforation" /></a>
+        <main>                                                                              <!-- Dit is waar de echte content van de pagina begint. -->
+            <section class="background" id="background1">                                   <!-- Dit is section 1. Deze tag heeft, net als alle andere sections de class background, omdat ik tijdens het maken niet precies wist of ik nog meer tags met section ging gebruiken. Het id #background1 is voor de achtergrond die uniek is voor deze section en voor het verwijzen naar dit deel van de pagina vanuit de navigatiebalk. -->
+                <h1 id="mainTitle"></h1>                                                    <!-- De tekst van h1 wordt letter voor letter getypt door typewriter.js.-->
+                <p id="introText"></p>                                                      <!-- Hetzelfde geldt voor de introductie tekst. -->
+                <a href="#background2"><img id="arrowDown" src="images/arrowdown1.gif" alt="Arrow down" title="Scroll down for more inforation" /></a>  <!-- Pijltje voor gebruiksgemak (dan hoeft de gebruiker niet te scrollen om bij het tweede deel van de pagina te komen). Het komt pas te voorschijn als typewriter.js af is gelopen. -->
             </section>
-            <section class="background" id="background2">
-                <h1 id="sectionOne">Data about the Human Spaceflight mission</h1>
-                <div class="flexContainer">
-                    <div class="flexCard" id="cardOne">
-                        <div class="flipCardContainer">
-                            <div class="flipCardFront" id="frontOne">
+            <section class="background" id="background2">                                   <!-- Dit is section 2. Deze tag heeft, net als alle andere sections de class background, omdat ik tijdens het maken niet precies wist of ik nog meer tags met section ging gebruiken. Het id #background2 is voor de achtergrond die uniek is voor deze section en voor het verwijzen naar dit deel van de pagina vanuit de navigatiebalk -->
+                <h1 id="sectionOne">Data about the Human Spaceflight mission</h1>           <!-- Deze titel heeft het id #sectionOne voor mijn eigen overzicht tijdens het programmeren (om de hoofdstructuur duidelijk te houden zeg maar) en omdat ik mogelijk deze nog nodig zou kunnen hebben in de toekomst (voor opmaak o.i.d.). -->
+                <div class="flexContainer">                                                 <!-- Er is voor het responsive uitlijnen van de twee kaarten flexbox gebruikt (zie de stylesheets). -->
+                    <div class="flexCard" id="cardOne">                                     <!-- Dit is de hoofdcontainer voor kaart 1 (dit was nodig voor het flip-on-hover effect) -->
+                        <div class="flipCardContainer">                                     <!-- Deze containter is nodig voor wat regels CSS, waardoor de flip-on-hover functie kan werken (zie de stylesheets). -->
+                            <div class="flipCardFront" id="frontOne">                       <!-- Dit is de voorkant van de kaart. Het id is voor de afzonderlijke opmaak voor deze kant van de kaart, zoals de achtergrond e.d.-->
                                 <h3>Learn more about being a passenger</h3>
-                                <img class="starship" src="images/spacexstarship2.png" alt="SpaceX Starship" title="SpaceX Starship" />
-                                <p class="cardParagraph">The spacecraft with the name Starship will be used for the transportation of both humans and cargo between Earth and Mars. Starship is the fully reusable spacecraft and second stage of the Starship system. It offers an integrated payload section and is capable of carrying passengers and cargo to Earth orbit, planetary destinations, and between destinations on Earth.</p>
-                                <button class="frontButton moreFlight" href="passenger.html"><span>More information for passengers</span></button>
+                                <img class="starship" src="images/spacexstarship2.png" alt="SpaceX Starship" title="SpaceX Starship" />                 <!-- Een leuk plaatje van het ruimteschip dat SpaceX gaat gebruiken voor deze reizen van en naar Mars -->
+                                <p class="cardParagraph">The spacecraft with the name <em>Starship</em> will be used for the transportation of both humans and cargo between Earth and Mars. Starship is the fully reusable spacecraft and second stage of the Starship system. It offers an integrated payload section and is capable of carrying passengers and cargo to Earth orbit, planetary destinations, and between destinations on Earth.</p>
+                                <span class="slideForMore">Slide for more...</span>
+                                <span class="tapForMore">Tap for more...</span>
+                                <span class="hoverForMore">Hover for more...</span>
+                                <button class="frontButton moreFlight" href="passenger.html"><span>More information for passengers</span></button>      <!-- Dit is dezelfde button als op de achterkant, maar deze wordt alleen weergegeven op de voorkant op smartphone schermen. -->
                             </div>
-                            <div class="flipCardBack" id="backOne">
+                            <div class="flipCardBack" id="backOne">                         <!-- Dit is de achterkant van de kaart. Het id is voor de afzonderlijke opmaak voor deze kant van de kaart, zoals de achtergrond e.d. -->
                                 <h3>Data about the flight</h3>
-                                <div id="dashboard"></div>
-                                <script src="dashboard.js"></script>
-                                <script src="dashboardData.js"></script>
-                                <button class="backButton moreFlight" href="passenger.html"><span>More information for passengers</span></button>
+                                <div id="dashboard"></div>                                  <!-- Hierin wordt de grafiek door dashboard.js geplot -->
+                                <script src="dashboard.js"></script>                        <!-- Dit is het script dat de grafiek berekent en plaatst op de website binnen div#dashboard. Dit script moet binnen div#backOne worden geladen, vandaar dat het hierzo staat in plaats van in de head (als het in de head staat doet het het niet namelijk). De library van D3 staat wel in de head gelinkt al. -->
+                                <script src="dashboardData.js"></script>                    <!-- Dit is de data dat nodig is in het script dashboard.js om de grafiek te kunnen plotten. Wanneer hierin de getallen worden veranderd, verandert de grafiek mee. Dit script moet binnen div#backOne worden geladen, vandaar dat het hierzo staat in plaats van in de head (als het in de head staat doet het het niet namelijk). -->
+                                <button class="backButton moreFlight" href="passenger.html"><span>More information for passengers</span></button>       <!-- Dit is dezelfde button als op de voorkant, maar deze wordt niet weergegeven op deze kant van de kaart op smartphone schermen in verband met de ruimtelijke indeling -->
                             </div>
                         </div>
                     </div>
-                    <div class="flexCard" id="cardTwo">
+                    <div class="flexCard" id="cardTwo">                                     <!-- Dit is kaart 2 -->
                         <div class="flipCardContainer">
                             <div class="flipCardFront" id="frontTwo">
                                 <h3>Learn more about living on Mars</h3>
                                 <img class="planetMars" src="images/mars3.png" alt="Planet Mars" title="Mars" />
-                                <p class="cardParagraph">At an average distance of 140 million miles, Mars is one of Earth's closest habitable neighbors. Mars is about half again as far from the Sun as Earth is, so it still has decent sunlight. It is a little cold, but we can warm it up. Its atmosphere is primarily CO2 with some nitrogen and argon and a few other trace elements, which means that we can grow plants on Mars just by compressing the atmosphere. Gravity on Mars is about 38% of that of Earth, so you would be able to lift heavy things and bound around. Furthermore, the day is remarkably close to that of Earth.</p>
-                                <button class="frontButton morePlanet" href="mars.html"><span>More about life on Mars</span></button>
+                                <p class="cardParagraph">At an average distance of 140 million miles, Mars is one of Earth's closest habitable neighbors. Mars is about half again as far from the Sun as Earth is, so it still has decent sunlight. It is a little cold, but we can warm it up. Its atmosphere is primarily CO<sub>2</sub> with some nitrogen and argon and a few other trace elements, which means that we can grow plants on Mars just by compressing the atmosphere. Gravity on Mars is about 38% of that of Earth, so you would be able to lift heavy things and bound around. Furthermore, the day is remarkably close to that of Earth.</p>
+                                <span class="slideForMore">Slide for more...</span>
+                                <span class="tapForMore">Tap for more...</span>
+                                <span class="hoverForMore">Hover for more...</span>
+                                <button class="frontButton morePlanet" href="mars.html"><span>More about life on Mars</span></button>                   <!-- Dit is dezelfde button als op de achterkant, maar deze wordt alleen weergegeven op de voorkant op smartphone schermen. -->
                             </div>
                             <div class="flipCardBack" id="backTwo">
                                 <h3>Data about the destination</h3>
-                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-                                <script src="pieChart.js"></script>
-                                <div id="piechart"></div>
-                                <button class="backButton morePlanet" href="mars.html"><span>More about life on Mars</span></button>
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>                                 <!-- Dit is de libary van Google waarvan gebruik is gemaakt voor deze grafiek. -->
+                                <script src="pieChart.js"></script>                         <!-- Dit is het script dat de grafiek berekent en plaatst op de website binnen div#piechart. Dit script moet binnen div#backTwo worden geladen, vandaar dat het hierzo staat in plaats van in de head (als het in de head staat doet het het niet namelijk). -->
+                                <div id="piechart"></div>                                   <!-- Hierin wordt de taartdiagram gegenereerd -->
+                                <button class="backButton morePlanet" href="mars.html"><span>More about life on Mars</span></button>                    <!-- Dit is dezelfde button als op de voorkant, maar deze wordt niet weergegeven op deze kant van de kaart op smartphone schermen in verband met de ruimtelijke indeling -->
                             </div>
                             
                         </div>   
                     </div>
                 </div>
             </section>
-            <section class="background" id="background3">
-                <h1 id="sectionTwo">Save the date</h1>
-                <p id="countdown"></p>
+            <section class="background" id="background3">                                   <!-- Dit is section 3. Deze tag heeft, net als alle andere sections de class background, omdat ik tijdens het maken niet precies wist of ik nog meer tags met section ging gebruiken. Het id #background3 is voor de achtergrond die uniek is voor deze section en voor het verwijzen naar dit deel van de pagina vanuit de navigatiebalk -->
+                <h1 id="sectionTwo">Save the date</h1>                                      <!-- Deze titel heeft het id #sectionTwo voor mijn eigen overzicht tijdens het programmeren (om de hoofdstructuur duidelijk te houden zeg maar) en omdat ik mogelijk deze nog nodig zou kunnen hebben in de toekomst (voor opmaak o.i.d.). -->
+                <p id="countdown"></p>                                                      <!-- Hier wordt de tekst neergezet vanuit countdown.js die elke seconde berekent hoe lang het nog duurt voordat het 16 juli 2026 13:32:00 is. -->
                 <!--<div class="grid-container">
                     <div class="grid-item item1">
                         <button></button>
@@ -113,10 +132,10 @@
                   </div>-->
             </section>
         </main>
-        <footer>
-            <span class="myWebsite">Design by <a href="https://robinvandenbosch.nl" target="_blank">Robin van den Bosch</a></span>
-            <p>For inquiries about our private passenger program, contact <a href="mailto:sales@spacex.com">sales@spacex.com</a></p>
-            <a id="spacexWebsite" href="https://spacex.com" target="_blank">&copy; SpaceX</a>
+        <footer>                                                                            <!-- Dit is de footer. -->
+            <span class="myWebsite">Design by <a href="https://robinvandenbosch.nl" target="_blank">Robin van den Bosch</a></span>                  <!-- Vermelding dat het design van mij is + een linkje naar mijn eigen website (robinvandenbosch.nl). -->
+            <p>For inquiries about our private passenger program, contact <a href="mailto:sales@spacex.com">sales@spacex.com</a></p>                <!-- Deze tekst staan ook onderaan in de footer op de website van SpaceX, dus het leek me leuk om dat hier ook te gebruiken. -->
+            <a id="spacexWebsite" href="https://spacex.com" target="_blank">&copy; SpaceX</a>                                                       <!-- Linkje naar de officiële website van SpaceX. -->
         </footer>
     </body>
 </html>

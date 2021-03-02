@@ -1,4 +1,4 @@
-/* Model (afmetingen): iPad (portrait and landscape) */
+/* Model (afmetingen): iPad (ook al reiken de afmetingen in de media query van de afmetingen voor een iPad tot de afemtingen voor een iPad Pro, is de website geoptimaliseerd voor de gewone iPad en niet iPad Pro. Ik heb deze getallen alleen gekozen omdat de opmaak voor op een iPad Pro dichter bij de opmaak van de iPad ligt dan bij de opmaak voor een kleine desktop) */
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     html {
         overflow-x: hidden;
@@ -81,11 +81,23 @@
         height: 50%;
     }
 
+    .starship {
+        height: 60%;
+    }
+
     .frontButton {
         display: none;
     }
 
     .backButton {
         display: block;
+    }
+
+    .tapForMore {
+        display: block;
+    }
+
+    .slideForMore, .hoverForMore {
+        display: none;
     }
 }

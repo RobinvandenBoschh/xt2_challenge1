@@ -2,7 +2,7 @@
    
     #mainTitle {
         top: 0;
-        padding-top: 30vh;
+        padding-top: 20vh;
         width: 50%;
         margin-left: 25%;
     }
@@ -16,9 +16,9 @@
     }
 
     #arrowDown {
-        width: 4vw;
+        width: 6vw;
         bottom: 1vh;
-        left: 48vw;
+        left: 47vw;
     }
 
     #countdown {
@@ -31,7 +31,7 @@
         flex-direction: row;
         justify-content: center;
         width: 80%;
-        height: 350px;
+        height: 60%;
     }
 
     /* div.flexCard maakt gebruik van flexbox voor positionering. */
@@ -39,7 +39,7 @@
         display: block;
         height: 100%;
         width: 100%;
-        margin: 20px;
+        margin: 0 20px;
         perspective: 1000px;
     }
 
@@ -76,7 +76,11 @@
 
 
     .planetMars { 
-        height: 50%;
+        height: 40%;
+    }
+
+    .starship {
+        height: 60%;
     }
 
     .frontButton {
@@ -85,5 +89,13 @@
 
     .backButton {
         display: block;
+    }
+
+    .hoverForMore {
+        display: block;
+    }
+
+    .slideForMore, .tapForMore {
+        display: none;
     }
 }
