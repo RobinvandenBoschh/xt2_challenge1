@@ -1,0 +1,138 @@
+path {
+    stroke: #fff;
+}
+
+path:hover {
+    opacity: 0.8;
+}
+
+#backOne rect {
+    opacity: 0.8;
+}
+
+#backOne rect:hover {
+    fill: #5972c3;
+    opacity: 1;
+}
+
+.legend tr{
+    border-bottom: 1px solid grey;
+}
+
+.legend tr:first-child{
+    border-top: 1px solid grey;
+}
+
+.legend td {
+    /*padding: 4px 5px;*/
+    vertical-align: top;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+    display: none;
+}
+
+
+
+
+/* smartphone */
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3){
+    #dashboard {
+        height: 50%;
+        width: 100%;
+        margin-top: 0%;
+
+    }
+
+    .legend {
+        /*margin-bottom: 76px;*/
+        position: absolute;
+        top: 15%;
+        left: 5%;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+
+    .legendFreq, .legendPerc {
+        box-align: right;
+        width: 7vw;
+    }
+}
+
+
+/* tablet */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #dashboard {
+        height: 50%;
+        margin-top: -2%;
+    }
+
+    .legend {
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+    
+    .legendFreq, .legendPerc {
+        box-align: right;
+        width: 7vw;
+    }
+}
+
+
+/* small desktop */
+@media only screen and (min-device-width : 1025px) and (max-device-width : 1439px) {
+    #dashboard {
+        height: 50%;
+        margin-top: 5%;
+    }
+
+    .legend {
+        position: absolute;
+        top: 15%;
+        left: 40px;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+    
+    .legendFreq, .legendPerc {
+        box-align: right;
+        width: 7vw;
+    }
+}
+
+
+/* large desktop */
+@media only screen and (min-device-width: 1440px) {
+    #dashboard {
+        height: 50%;
+        margin-top: 5%;
+    }
+
+    .legend {
+        /*margin-bottom: 76px;*/
+        position: absolute;
+        top: 15%;
+        left: 40px;
+        display: inline-block;
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+    
+    .legendFreq, .legendPerc {
+        box-align: right;
+        width: 7vw;
+    }
+}

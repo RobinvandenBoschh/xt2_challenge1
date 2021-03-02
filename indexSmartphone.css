@@ -1,0 +1,90 @@
+/* Model (afmetingen): iPhone X */
+/*@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){ }*/
+   
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3){
+    html {
+        overflow-x: hidden;
+    }
+
+    #mainTitle {
+        top: 0;
+        padding-top: 15vh;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    #introText {
+        width: 80%;
+        margin-left: 10%;
+        top: 5%;
+    }
+
+    #arrowDown {
+        width: 20vw;
+        bottom: 1vh;
+        left: 40vw;
+    }
+
+    #countdown {
+        margin-top: 40%;
+        width: 80%;
+        margin-left: 10%;
+    }
+
+    
+
+    .flexContainer {
+        margin-top: 25%;
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction: column;
+        width: 105vw;
+        height: 80%;
+    }
+
+    /* div.flexCard maakt gebruik van flexbox voor positionering. */
+    .flexCard {
+        display: block;
+        height: 100%;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .flipCardContainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        overflow-y: scroll !important;
+    }
+
+    .flipCardFront, .flipCardBack {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .flipCardFront {
+        color: black;
+    }
+
+    .flipCardBack {
+        color: white;
+        left: 100%;
+    }
+
+
+    .planetMars { 
+        height: 35%;
+        margin-bottom: 4%;
+        margin-left: 4%;
+    }
+
+    .frontButton {
+        display: block;
+    }
+
+    .backButton {
+        display: none;
+    }
+}

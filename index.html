@@ -1,17 +1,122 @@
 <!DOCTYPE html>
-<html lang="nl">
-	<head>
-		<meta charset="UTF-8" />
-		<title>gerrit</title>
-		<link type="text/css" href="styles/my_style.css" rel="stylesheet" />
-		<script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="scripts/my_scripts.js"></script>
-	</head>
-	<body>
-		<section id="woonkamer">
-			<img id="background" src="images/background.jpg" />
-			<img id="gerrit" src="images/gerrit.png" />
-		</section>
-		<p>Spongebob Squarepants, Nickelodeon Animation Studios 1999</p>
-	</body>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" type="image/x-icon" href="images/spacexicon1.ico" />
+        <link rel="stylesheet" href="index.css" type="text/css" />
+        <link rel="stylesheet" href="indexSmartphone.css" type="text/css" />
+        <link rel="stylesheet" href="indexTablet.css" type="text/css" />
+        <link rel="stylesheet" href="indexSmallDesktop.css" type="text/css" />
+        <link rel="stylesheet" href="indexLargeDesktop.css" type="text/css" />
+        <link rel="stylesheet" href="fonts.css" type="text/css" />
+        <link rel="stylesheet" href="navbar.css" type="text/css" />
+        <link rel="stylesheet" href="scrollbar.css" type="text/css" />
+        <link rel="stylesheet" href="dashboard.css" type="text/css" />
+        <link rel="stylesheet" href="pieChart.css" type="text/css" />
+        <title>Dashboard | Interplanetary Transport System Interface by SpaceX</title>
+        <!--<script src="https://d3js.org/d3.v6.min.js"></script>-->
+        <script src="https://d3js.org/d3.v3.min.js"></script>
+        <script src="typewriter.js"></script>
+        <script src="navbar.js"></script>
+        <script src="countdown.js"></script>
+        <script src="calculator.js"></script>
+    </head>
+    <body>
+        <nav id="navbar">
+            <a id="home" href="#background1">Home</a>
+            <a href="#background2">Data</a>
+            <a href="#background3">Launch</a>
+        </nav>
+        <a href="#background1"><img id="spacexLogo" src="images/spacex2.png" alt="SpaceX Logo" title="Home" /></a>
+        
+        <main>
+            <section class="background" id="background1">
+                <h1 id="mainTitle"></h1>
+                <p id="introText"></p>
+                <a href="#background2"><img id="arrowDown" src="images/arrowdown1.gif" alt="Arrow down" title="Scroll down for more inforation" /></a>
+            </section>
+            <section class="background" id="background2">
+                <h1 id="sectionOne">Data about the Human Spaceflight mission</h1>
+                <div class="flexContainer">
+                    <div class="flexCard" id="cardOne">
+                        <div class="flipCardContainer">
+                            <div class="flipCardFront" id="frontOne">
+                                <h3>Learn more about being a passenger</h3>
+                                <img class="starship" src="images/spacexstarship2.png" alt="SpaceX Starship" title="SpaceX Starship" />
+                                <p class="cardParagraph">The spacecraft with the name Starship will be used for the transportation of both humans and cargo between Earth and Mars. Starship is the fully reusable spacecraft and second stage of the Starship system. It offers an integrated payload section and is capable of carrying passengers and cargo to Earth orbit, planetary destinations, and between destinations on Earth.</p>
+                                <button class="frontButton moreFlight" href="passenger.html"><span>More information for passengers</span></button>
+                            </div>
+                            <div class="flipCardBack" id="backOne">
+                                <h3>Data about the flight</h3>
+                                <div id="dashboard"></div>
+                                <script src="dashboard.js"></script>
+                                <script src="dashboardData.js"></script>
+                                <button class="backButton moreFlight" href="passenger.html"><span>More information for passengers</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flexCard" id="cardTwo">
+                        <div class="flipCardContainer">
+                            <div class="flipCardFront" id="frontTwo">
+                                <h3>Learn more about living on Mars</h3>
+                                <img class="planetMars" src="images/mars3.png" alt="Planet Mars" title="Mars" />
+                                <p class="cardParagraph">At an average distance of 140 million miles, Mars is one of Earth's closest habitable neighbors. Mars is about half again as far from the Sun as Earth is, so it still has decent sunlight. It is a little cold, but we can warm it up. Its atmosphere is primarily CO2 with some nitrogen and argon and a few other trace elements, which means that we can grow plants on Mars just by compressing the atmosphere. Gravity on Mars is about 38% of that of Earth, so you would be able to lift heavy things and bound around. Furthermore, the day is remarkably close to that of Earth.</p>
+                                <button class="frontButton morePlanet" href="mars.html"><span>More about life on Mars</span></button>
+                            </div>
+                            <div class="flipCardBack" id="backTwo">
+                                <h3>Data about the destination</h3>
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                                <script src="pieChart.js"></script>
+                                <div id="piechart"></div>
+                                <button class="backButton morePlanet" href="mars.html"><span>More about life on Mars</span></button>
+                            </div>
+                            
+                        </div>   
+                    </div>
+                </div>
+            </section>
+            <section class="background" id="background3">
+                <h1 id="sectionTwo">Save the date</h1>
+                <p id="countdown"></p>
+                <!--<div class="grid-container">
+                    <div class="grid-item item1">
+                        <button></button>
+                    </div>
+                    <div class="grid-item item2">
+                        <button id="diameter" onclick="chooseDistance(this.id)">Diameter of Mars</button>
+                    </div>
+                    <div class="grid-item item3">
+                        <button id="shortest" onclick="chooseDistance(this.id)">Shortest distance to Mars</button>
+                    </div>
+                    <div class="grid-item item4">
+                        <button id="longest" onclick="chooseDistance(this.id)">Longest distance to Mars</button>
+                    </div>
+                    <div class="grid-item item5">
+                        <button id="years">Years</button>
+                    </div>
+                    <div class="grid-item item6">
+                        <p id="calcAnswer"></p>
+                    </div>
+                    <div class="grid-item item7">
+                        <button id="kilometers">Kilometers</button>
+                    </div>
+                    <div class="grid-item item8">
+                        <button id="miles">Miles</button>
+                    </div>
+                    <div class="grid-item item9">
+                        <button id="lengthStarship">Times the length of the Starship</button>
+                    </div>
+                    <div class="grid-item item10">
+                        <button id="lengthHuman">Times the length of a human</button>
+                    </div>
+                  </div>-->
+            </section>
+        </main>
+        <footer>
+            <span class="myWebsite">Design by <a href="https://robinvandenbosch.nl" target="_blank">Robin van den Bosch</a></span>
+            <p>For inquiries about our private passenger program, contact <a href="mailto:sales@spacex.com">sales@spacex.com</a></p>
+            <a id="spacexWebsite" href="https://spacex.com" target="_blank">&copy; SpaceX</a>
+        </footer>
+    </body>
 </html>

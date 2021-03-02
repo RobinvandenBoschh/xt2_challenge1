@@ -1,0 +1,100 @@
+/* In deze stylesheet staat de opmaak voor de menubalk en voor de footer. De footer hoort niet bij de menubalk maar de menubalk en de footer opmaak zijn van toepassing op elke pagina dus heb ik ze in één stylesheet gezet voor het gemak. */
+
+#navbar {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+    z-index: 1000;
+}
+
+#navbar a {
+    color: white;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 15px 35px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#home {
+    margin-left: 180px;
+}
+
+#navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#spacexLogo {
+    height: 17px;
+    position: fixed;
+    padding: 17px;
+    margin-left: 20px;
+    z-index: 2000;
+}
+
+footer {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    background: url("images/space4_darker1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+}
+
+#spacexWebsite {
+    position: fixed;
+    font-size: 10px;
+    float: right;
+    right: 30px;
+    bottom: 15px;
+    text-decoration: none;
+}
+
+#spacexWebsite:hover {
+    text-shadow: 0px 0px 5px black;
+}
+
+footer p {
+    position: absolute;
+    display: block;
+    text-align: center;
+    width: 50%;
+    left: 25%;
+    font-size: 13px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+    margin-top: -25px;
+}
+
+a[href*="mailto"] {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+a[href*="mailto"]:hover {
+    text-decoration: underline;
+}
+
+.myWebsite {
+    position: relative;
+    font-size: 10px;
+    float: left;
+    left: 30px;
+    top: 25px;
+    text-decoration: none;
+}
+
+.myWebsite a {
+    text-decoration: none;
+}
+
+.myWebsite a:hover {
+    text-shadow: 0px 0px 5px white;
+}
