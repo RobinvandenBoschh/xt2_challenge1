@@ -1,101 +1,37 @@
+/* Dit is alle CSS die gelt voor elke schermgrootte. In de andere stylesheets heb ik de media queries direct onder de andere CSS gezet, maar bij dit bestand vond ik dat erg lang en daardoor onoverzichtelijk worden. Daarom heb ik alle CSS per media query in een apart CSS bestand gezet. */
+/* Bij kleuren kan de uitlijning van de comments anders zijn als je niet, net als ik, Visual Studio Code gebruikt. */
+
 * {
-    margin: 0;
+    margin: 0;                                      /* Dit is om alle marges die de browser zelf instelt weer op 0 te zetten. Ik heb ze namelijk alleen nodig wanneer ik dat aangeef. */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;                        /* Dit zorgt ervoor dat bij een verwijzing (<a>) naar een deel van de pagina er geen verspringing is, maar dat hij automatisch 'scrollt' naar dat deel. Dit is te zien bij het menu en de pijl naar beneden in het eerste deel. */
 }
 
 body {
-    background-color: black;
-    overflow-x: hidden;
+    background-color: black;                      /* Dit is een declaratie die nog over is gebleven van voor ik de achtergronden had ingesteld haha. */
+    overflow-x: hidden;                             /* Dit zorgt ervoor dat er niet horizontaal gescrollt kan worden (soms loopt een element net buiten de paginarand en dan kan je onbedoeld horizontaal scrollen op de pagina en dat wil ik niet). */
 }
 
 #arrowDown {
-    display: none;
+    display: none;                                  /* De pijl naar beneden komt pas te voorschijn aan het eind van de functie typewriter. In die functie wordt deze regel omgezet van display:none naar display:block, maar als de pagina laadt moet de waarde nog op none staan. */
     position: absolute;
-    z-index: 100;
+    z-index: 100;                                   /* Ik neem altijd z-index waarden die echt extreem ver uit elkaar liggen omdat ik me dan geen zorgen hoef te maken over de vraag of hij wel helemaal bovenop komt haha. Maar ik ben me ervan bewust dat het een overdreve hoge waarde is. */
 }
 
 .background {
-    height: 100vh;
-    width: 100%;
+    height: 100vh;                                  /* De tags section met deze class zijn de drie hoofddelen van de pagina. Elk deel wilde ik volledig schermvullend hebben. Om dit te doen heb ik de hoogte op 100vh (dus de hele hoogte van het scherm), en de breedte op 100%. De breedte staat vast en de achtergrond staat op de andere stylesheets gedeclareerd en ingesteld zodat hij altijd meeschaalt met een volledige schermvulling. */
+    width: 100%;                                    /* Dit was een van de eerste regels die ik heb geschreven en toen werkte 100vw als breedte volgens mij niet en gaf een extra rand aan de zijkant, maar 100% werkte wel. Het is natuurlijk in princiepe hetzelfde als het parent element een breedte van de totale schermbreedte heeft; vw is namelijk een procent van de breedte van het scherm. */
 }
-
-#background1 {
-    background: url("images/earth1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: bottom;
-}
-
-#background2 {
-    background: url("images/spaceship2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: top;
-}
-
-#background3 {
-    background: url("images/mars1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: bottom;
-}
-
-/*#mainTitle {
-    top: 0;
-    padding-top: 30vh;
-    width: 50%;
-    margin-left: 25%;
-}*/
 
 #introText {
     position: relative;
-    text-shadow: 0px 0px 5px black;
+    text-shadow: 0px 0px 5px black;               /* Tijdens het maken van de website merkte ik dat bij sommige schermgroottes de tekst deels overlapte met het lichte deel van de achtergrond en hiermee heb ik gezorgd dat de tekst ook op die plekken beter leesbaar is. */
 }
 
-/*#countdown {
-    margin-top: 15%;
-}*/
-
-.flexContainer {
-    display: flex;
-}
-
-#backOne {
-    background: url("images/spaceship1_darker2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-}
-
-#backTwo {
-    background: url("images/mars2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: bottom;
-}
-
-#frontOne {
-    background: url("images/space4_darker1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
-}
-
-#frontTwo {
-    background: url("images/space5_darker1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: center;
+.flexContainer {                                    /* De flexbox ziet er bij elke schermgrootte net iets anders uit, dus wordt binnen de media queries verder opgemaakt. */
+    display: flex;                                  /* Voor elke schermgrootte geld natuurlijk in ieder geval deze regel (anders is het geen flexbox namelijk). */
 }
 
 h3 {
@@ -105,13 +41,13 @@ h3 {
 
 .cardParagraph {   
     margin: 0 5%;
-    text-align: left;
-    text-shadow: 0 0 5px black;
+    text-align: left;                               /* Normaal gesproken is de tekstuitlijning aan de linkerkant de default instelling, maar het parent element van dit element (of alle p tags, ik weet niet precies meer welke van de twee opties het is) had als instelling dat de tekst vanuit het midden uitgelijnd moet worden, vandaar dat ik voor deze paragraaf de tekst weer link laat uitlijnen.  */
+    text-shadow: 0 0 5px black;                   /* De schaduw is hier weer toegevoegd voor de leesbaarheid op de plekken waar de achtergrond lichter is, net als bij de introductie tekst. */ 
 }
 
 .planetMars {
-    display: block;
-    float: right;
+    display: block;                                 /* Dit is zodat ik de afmetingen kan aanpassen (dit wordt gedaan in een andere stylesheet). */
+    float: right;                                   /* Deze afbeelding moet aan de rechterkant staan. */
     margin-top: 1%;
     margin-right: 4%;
     padding-left: 1%;
@@ -119,15 +55,12 @@ h3 {
 
 .starship {
     display: block;
-    float: right;
+    float: right;                                   /* Deze afbeelding moet aan de rechterkant staan. */
     margin-top: -1%;
     margin-right: 4%;
 }
 
-button.moreFlight, button.morePlanet {
-    position: absolute;
-    bottom: 4%;
-    left: 4%;
+button.moreFlight, button.morePlanet, input[value="Accelerate"], input[value="Decelerate"] {    /* De buttons hebben grotendeels dezelfde opmaak dus deze regels gelden voor elke button die ik heb gebruikt op de pagina */
     border-radius: 4px;
     border: none;
     color: white;
@@ -138,49 +71,55 @@ button.moreFlight, button.morePlanet {
     width: 92%;
 }
 
-button.moreFlight {
-    background-color: #002e63; /* Kleur naam: Cool black */
+button.moreFlight, button.morePlanet {
+    position: absolute;
+    bottom: 4%;
+    left: 4%;
 }
 
-button.moreFlight:hover { /* Knop wordt donkerder van kleur bij hover */
-    background-color: #191f45; /* Kleur naam: Navy blue bellflower (Konkikyo) */
+button.moreFlight, input[value="Decelerate"] {      
+    background-color: #002e63;                    /* Kleur naam: Cool black */
 }
 
-button.morePlanet {
-    background-color: #b44f2d; /* Kleur naam: Pantone 8924 C Color */
+button.moreFlight:hover, input[value="Decelerate"]:hover {    /* Knop wordt donkerder van kleur bij hover */
+    background-color: #191f45;                    /* Kleur naam: Navy blue bellflower (Konkikyo) */
 }
 
-button.morePlanet:hover { /* Knop wordt donkerder van kleur bij hover */
-    background-color: #9c4427; /* Kleur naam: Cumin Color */
+button.morePlanet, input[value="Accelerate"] {
+    background-color: #b44f2d;                    /* Kleur naam: Pantone 8924 C Color */
 }
 
-button.moreFlight span, button.morePlanet span {
+button.morePlanet:hover, input[value="Accelerate"]:hover {    /* Knop wordt donkerder van kleur bij hover */
+    background-color: #9c4427;                    /* Kleur naam: Cumin Color */
+}
+
+button.moreFlight span, button.morePlanet span {    /* Opmaak van de tekst in de button (dit staat binnen de span tag) */
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 0.5s;
+    transition: 0.5s;                               /* De animatie/transitie duurt 0,5 seconde. */   
 }
 
 button.moreFlight span:after, button.morePlanet span:after {
-    content: '\00bb';
+    content: '\00bb';                               /* Dit definieert welk teken er tevoorschijn moet komen (twee pijltjes naar rechts) wanneer je er overheen gaat met de muis. */
     position: absolute;
-    opacity: 0;
+    opacity: 0;                                     /* Wanneer je er niet overheen gaat met je muis, zijn de pijltjes niet zichtbaar */
     top: 0;
     right: -20px;
-    transition: 0.5s;
+    transition: 0.5s;                               /* De animatie/transitie duurt 0,5 seconde. */
 }
 
 button.moreFlight:hover span, button.morePlanet:hover span {
-    padding-right: 25px;
+    padding-right: 25px;                            /* De tekst schuift op om plaats te maken voor de pijltjes. */
 }
 
 button.moreFlight:hover span:after, button.morePlanet:hover span:after {
-    opacity: 1;
+    opacity: 1;                                     /* De pijltjes zijn nu volledig zichbaar. */
     right: 0;
 }
 
-.slideForMore, .tapForMore, .hoverForMore {
-    opacity: 0.5;
+.slideForMore, .tapForMore, .hoverForMore {         /* Opmaak van de tooltips */
+    opacity: 0.5;                                   /* De tooltip viel te veel op met volledige opacity, dus heb ik het maar op 0.5 gezet zodat het niet veel afleid maar wel leesbaar is. */
     margin-top: 2%;
     left: 5%;
     position: absolute;
@@ -193,64 +132,44 @@ button.moreFlight:hover span:after, button.morePlanet:hover span:after {
 
 
 .grid-container {
-    display: grid;
+    display: grid;                                  /* Deze regel zorgt dat het een CSS grid is. */ 
+    position: relative;
     grid-gap: 5px;
-    background-color: #2196F3;
-    padding: 2px;
+    left: 50%;                                      /* Deze en de twee onderstaande regels zorgen samen ervoor dat het gehele grid altijd horizontaal gecentreerd staat op de pagina, ongeacht de breedte van het grid (dit verschilt namelijk per schermgrootte). */
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
 }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
-    font-size: 12px;
+    padding: 0 3%;
 }
-  
+ 
 .item1 {
-    grid-column: 1;
-    grid-row: 1;
-}
-  
-.item2 {
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: 1 / span 2;                        /* Deze cel start in de eerste kolom van het grid en is twee kolommen breed. */
+    grid-row: 1;                                    /* Deze cel start in de eerste rij van het grid */
 }
 
+.item2 {
+    grid-column: 1 / span 2;                        /* Deze cel start in de eerste kolom van het grid en is twee kolommen breed. */ 
+    grid-row: 2;                                    /* Deze cel start in de tweede rij van het grid */
+    justify-self: center;                           /* Dit zorgt dat de elementen (in dit geval de grafiek) horizontaal wordt gecentreerd binnen deze cell van het grid */
+}
+  
 .item3 {
-    grid-column: 3;
-    grid-row: 1;
+    grid-column: 1;                                 /* Deze cel start in de eerste kolom van het grid */
+    grid-row: 3;                                    /* Deze cel start in de derde rij van het grid */
 }
 
 .item4 {
-    grid-column: 4;
-    grid-row: 1;
-}
-  
-.item5 {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 2;                                 /* Deze cel start in de tweede kolom van het grid */
+    grid-row: 3;                                    /* Deze cel start in de derde rij van het grid */
 }
 
-.item6 {
-    grid-column: 2 / span 3;
-    grid-row: 2 / span 5;
+#gauge_div {
+    width: 100%;
 }
 
-.item7 {
-    grid-column: 1;
-    grid-row: 3;
-}
-
-.item8 {
-    grid-column: 1;
-    grid-row: 4;
-}
-
-.item9 {
-    grid-column: 1;
-    grid-row: 5;
-}
-
-.item10 {
-    grid-column: 1;
-    grid-row: 6;
+input[value="Accelerate"], input[value="Decelerate"] {
+    padding: 4% 0;
 }

@@ -36,11 +36,6 @@ footer {
     display: block;
     width: 100%;
     min-height: 50px;
-    background: url("images/space4_darker1.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    background-position-y: bottom;
 }
 
 #spacexWebsite {

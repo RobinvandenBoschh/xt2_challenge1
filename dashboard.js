@@ -1,18 +1,20 @@
 // Ik heb de Dashboard datavisualisatie uit een bibliotheek van D3 (http://bl.ocks.org/NPashaP/96447623ef4d342ee09b), maar ik heb het geheel zelf aangepast op de data en opmaak van mijn website.
+// Ik zal vermelden waar ik dingen heb aangepast. De opmerkingen in het Engels zijn natuurlijk niet van mij. Ik heb ze maar laten staan. Ze hebben me erg geholpen met het begrijpen van deze ingewikkelde JavaScript functies haha.
+// Het is vooraf misschien nog goed om te weten dat ik wel snap wat er hieronder aan code staat, maar dat ik dat gemakkelijker mondeling kan uitleggen en ermee kan werken dan dat ik het via dit soort comments exact kan uitleggen.
 
 function dashboard(id, fData){
-    var barColor = '#7d90d0';
-    function segColor(c){ return {water:"#a7b4df", food:"#3e58ae",air:"#131b36"}[c]; }
+    var barColor = '#7d90d0';                                                                       // Ik heb hier de kleur aangepast
+    function segColor(c){ return {water:"#a7b4df", food:"#3e58ae",air:"#131b36"}[c]; }              // Ik heb hier de kleuren aangepast
     
-    // compute total for each Flight.
+    // compute total for each flight.
     fData.forEach(function(d){d.total=d.freq.water+d.freq.food+d.freq.air;});
     
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-        if(screen.width > 1439) {
+        if(screen.width > 1439) {                                                                   // Voor de grote desktop schermen wilde ik dat de staafdiagram breder was dan op alle andere schermen, omdat er anders heel veel ruimte over was terwijl de grafiek onnodig klein was. Ik heb daarom via dit if statement gezorgd dat alleen op schermen breder dan 1439px een staafdiagram krijgen die 400 breed is in plaats van 250.
             hGDim.w = 400 - hGDim.l - hGDim.r, 
-            hGDim.h = 200 - hGDim.t - hGDim.b;
+            hGDim.h = 200 - hGDim.t - hGDim.b;                                                      // De breedte is bij if en else hetzelfde, maar het deed het niet als ik deze regel 
         } else {
             hGDim.w = 250 - hGDim.l - hGDim.r, 
             hGDim.h = 200 - hGDim.t - hGDim.b;
@@ -102,8 +104,8 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        if(screen.width < 376) { // ik weet dat ik alleen de eerste regel heb aangepast, maar met zo'n ingewikkelde functie wilde ik het zekere voor het onzekere nemen haha
-            var pC ={},    pieDim ={w:100, h: 100};                    
+        if(screen.width < 376) {                                                                    // ik weet dat ik alleen de eerste regel heb aangepast, maar met zo'n ingewikkelde functie wilde ik het zekere voor het onzekere nemen haha
+            var pC ={},    pieDim ={w:100, h: 100};                                                 // De hoogte en breedte van de taartdiagram moest wat kleiner zijn voor de smartphone dan voor alle andere schermen omdat het anders niet paste in het vlak.            
             pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
             // create svg for pie chart.
@@ -151,7 +153,7 @@ function dashboard(id, fData){
         } 
 
         else if(screen.width > 1439) {
-            var pC ={},    pieDim ={w:150, h: 150};
+            var pC ={},    pieDim ={w:150, h: 150};                                                 // Deze else if en de else zijn uiteindelijk hetzelfde gebleven. Ik dacht dat ik de afmetingen voor het grootste scherm ook moest aanpassen maar dat bleek uiteindelijk niet nodig. Het is nu kort voor de deadline en ik wilde niet deze ingewikkelde functie op het laatste moment nog om zeep helpen haha. 
             pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
                     
             // create svg for pie chart.
@@ -250,7 +252,7 @@ function dashboard(id, fData){
 
 
     // function to handle legend.
-    function legend(lD){
+    function legend(lD){                                                                            // Hier hoefde ik niets aan te veranderen.
         var leg = {};
             
         // create table for legend.

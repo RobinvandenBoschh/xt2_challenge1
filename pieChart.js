@@ -1,10 +1,12 @@
+// Ik heb hier gebruik gemaakt van Google Charts.
+
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 function drawChart() {
     var data = google.visualization.arrayToDataTable([
-        ['Continents', 'amount'],
-        ['North America', 11],
+        ['Continents', 'amount'],                                           // Ik heb de labels aangepast.
+        ['North America', 11],                                              // Ik heb bij elke regel van de data het label (het continent) en het getal aangepast.
         ['South America',  2],
         ['Europe',  5],
         ['Asia',  4],
@@ -13,7 +15,7 @@ function drawChart() {
         ['Antarctica', 0]
         ]);
         
-    var options = {
+    var options = {                                                         // Alle regels binnen options heb ik zelf toegevoegd of aangepast.
         title: 'Humans curently on Mars (by continent)',
         titlePosition: 'middle',
         titleTextStyle: {

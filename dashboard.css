@@ -1,5 +1,7 @@
+/* Na twee dagen zoeken weet ik eindelijk wat de andere termelogieën zijn die hier in de CSS gebruikt worden haha. Blijkbaar gelden voor grafieken andere woorden voor in princiepe dezelfde dingen als meestal wordt gebruikt (ik weet niet precies hoe ik het moet uitleggen maar ik hoop dat het een beetje duidelijk is wat ik bedoel).  */
+
 path {
-    stroke: #fff;
+    stroke: #fff;                                 /* Stroke is hetzelfde als color bij een lijn. */
 }
 
 path:hover {
@@ -11,7 +13,7 @@ path:hover {
 }
 
 #backOne rect:hover {
-    fill: #5972c3;
+    fill: #5972c3;                                /* Fill is hetzelfde background-color. */
     opacity: 1;
 }
 
@@ -24,15 +26,14 @@ path:hover {
 }
 
 .legend td {
-    /*padding: 4px 5px;*/
     vertical-align: top;
 }
 
 .axis path,
 .axis line {
-  fill: none;
-  stroke: #fff;
-  shape-rendering: crispEdges;
+  fill: none;                                       /* Fill is hetzelfde background-color. */
+  stroke: #fff;                                   /* Stroke is hetzelfde als color bij een lijn. */
+  shape-rendering: crispEdges;                      /* Ik heb geen idee wat dit doet haha */
 }
 
 .x.axis path {
@@ -52,7 +53,6 @@ path:hover {
     }
 
     .legend {
-        /*margin-bottom: 76px;*/
         position: absolute;
         top: 15%;
         left: 5%;
@@ -123,7 +123,6 @@ path:hover {
     }
 
     .legend {
-        /*margin-bottom: 76px;*/
         position: absolute;
         top: 15%;
         left: 40px;

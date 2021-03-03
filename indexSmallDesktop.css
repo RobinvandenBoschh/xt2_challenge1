@@ -22,8 +22,74 @@
     }
 
     #countdown {
-        margin-top: 15%;
+        margin-top: 12%;
     }
+
+
+    #background1 {
+        background: url("images/earth1_w1500_h844.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+    }
+    
+    #background2 {
+        background: url("images/spaceship2_w1440_h960.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: top;
+    }
+    
+    #background3 {
+        background: url("images/mars1_w1440_h956.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+    }
+
+    #backOne {
+        background: url("images/spaceship1_darker2_w1200_h800.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+    }
+    
+    #backTwo {
+        background: url("images/mars2_w1226_h800.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+    }
+    
+    #frontOne {
+        background: url("images/space4_darker1_w1200_h1800.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+    }
+    
+    #frontTwo {
+        background: url("images/space5_darker1_w1050_h700.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+    }
+
+    footer {
+        background: url("images/space4_darker1_w450_h675.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: bottom;
+    }
+
 
     .flexContainer {
         margin-top: 100px;
@@ -97,5 +163,10 @@
 
     .slideForMore, .tapForMore {
         display: none;
+    }
+
+    .grid-container {
+        width: 40%;
+        top: 10%;
     }
 }

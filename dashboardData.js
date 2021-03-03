@@ -1,3 +1,6 @@
+// Dit is de data die nodig is om de grafiek in dashboard.js te kunnen plotten.
+// Ik heb de labels (flight, water, food, air) en alle getallen veranderd t.o.v. het voorbeeld, en ik heb ook nog een aantal extra regels toegevoegd t.o.v. in het voorbeeld zaten. Het is dus geen copy+paste geweest, ook al lijkt het in de hoofdstructuur natuurlijk nog wel op het voorbeeld.
+
 var freqData=[
      {Flight:'2014',freq:{water:3260, food:587, air:1195}}
     ,{Flight:'2015',freq:{water:416, food:3797, air:674}}

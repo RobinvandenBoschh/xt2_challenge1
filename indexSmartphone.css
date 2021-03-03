@@ -1,9 +1,10 @@
-/* Model (afmetingen): iPhone X */
-/*@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3){ }*/
-   
-@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3){
+/* Alle opmaak voor elk scherm is vrijwel hetzelfde, dus ik licht het toe in dit bestand en enkel de dingen die echt afwijken in andere bestanden behandel ik daar. Alles wat in princiepe hetzelfde is maar dan met andere getallen, leg ik alleen hier uit. */
+
+
+/* Model (afmetingen): iPhone X */   
+@media only screen and (min-device-width: 375px) and (max-device-height: 812px) and (-webkit-device-pixel-ratio: 3){ /* iPhones hebben een bepaalde device-pixel-ratio voor een scherper beeld, maar zonder dit te vermelden in de media query wordt het apparaat gezien als een device met een veel breder scherm dan het daadwerkelijk heeft en laadt de verkeerde opmaak (namelijk die voor de tablet) */
     html {
-        overflow-x: hidden;
+        overflow-x: hidden;                                         /* Deze declaratie in de body tag werkte niet op de smartphone en tablet schermen, maar wel in de html tag. */
     }
 
     #mainTitle {
@@ -20,7 +21,7 @@
     }
 
     #arrowDown {
-        width: 20vw;
+        width: 20vw;                                                /* Aangezien een smartphone en tablet scherm langer zijn dan breed, moet de breedte van deze afbeelding in vw op die schermen veel groter zijn dan op desktop schermen. */
         bottom: 1vh;
         left: 40vw;
     }
@@ -31,14 +32,78 @@
         margin-left: 10%;
     }
 
+
+    #background1 {
+        background: url("images/earth1_w1443_h812.jpg");            /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */ 
+        background-position-y: bottom;                              /* De verticale positionering is vanuit de onderkant (hier is het meest interessante van de afbeelding te zien) */
+    }
+    
+    #background2 {
+        background: url("images/spaceship2_w1218_h812.jpg");        /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: top;                                 /* De verticale positionering is vanuit de bovenkant (hier is het meest interessante van de afbeelding te zien) */
+    }
+    
+    #background3 {
+        background: url("images/mars1_w1223_h812.jpg");             /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: bottom;                              /* De verticale positionering is vanuit de onderkant (hier is het meest interessante van de afbeelding te zien) */
+    }
+
+    #backOne {
+        background: url("images/spaceship1_darker2_w450_h300.jpg"); /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: center;                              /* De verticale positionering is vanuit het midden (hier is het meest interessante van de afbeelding te zien) */
+    }
+    
+    #backTwo {
+        background: url("images/mars2_w460_h300.jpg");              /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: bottom;                              /* De verticale positionering is vanuit de onderkant (hier is het meest interessante van de afbeelding te zien) */
+    }
+    
+    #frontOne {
+        background: url("images/space4_darker1_w450_h675.jpg");     /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: center;                              /* De verticale positionering is vanuit het midden (hier is het meest interessante van de afbeelding te zien) */
+    }
+    
+    #frontTwo {
+        background: url("images/space5_darker1_w450_h300.jpg");     /* Kleinere versie van de afbeelding, geschikt voor deze schermgrootte (dit is gedaan voor elke schermgrootte) */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: center;                              /* De verticale positionering is vanuit het midden (hier is het meest interessante van de afbeelding te zien) */
+    }
+
+    footer {
+        background: url("images/space4_darker1_w450_h675.jpg");     /* Kleinere versie van de afbeelding, want voor de footer is de scherpte van de afbeelding niet zo belangrijk en een kleinere afbeelding is sneller geladen. */
+        background-size: cover;                                     /* Deze regel zorgt dat de achtergrond meeschaalt met de hoogte en breedte zodat het altijd volledig vullend is */
+        background-repeat: no-repeat;
+        background-position-x: center;                              /* De horizontale positionering is vanuit het midden. */
+        background-position-y: bottom;                              /* De verticale positionering is vanuit de onderkant (hier is het meest interessante van de afbeelding te zien) */
+    }
     
 
     .flexContainer {
         margin-top: 25%;
         margin-left: 0;
         margin-right: 0;
-        flex-direction: column;
-        width: 105vw;
+        flex-direction: column;                                     /* Voor schermen die langer zijn dan breed, dus smartphone en tablet schermen, moet de flex direction onder elkaar (column) zijn. Voor desktop schermen, die breder zijn dan lang, moet de flex direction naast elkaar (row) zijn. */
+        width: 105vw;                                               /* Dit is gedaan zodat er geen gek randje aan de rechterkant van het scherm te zien is (de illusie moet gewekt worden dat de 'achterkant' van de kaart als het ware naast het scherm zich bevindt en dat je hem erbij kan slepen om te zien wat erop staat. */
         height: 80%;
     }
 
@@ -55,27 +120,27 @@
         width: 100%;
         height: 100%;
         text-align: center;
-        overflow-y: scroll !important;
+        overflow-y: scroll !important;                              /* Binnen de flipCardContainer moet er naar links en naar echts geschoven worden. Om eerlijk te zijn raak ik altijd in de war of het nou overflow x of y is, maar dit werkt haha. */
     }
 
     .flipCardFront, .flipCardBack {
         position: absolute;
-        width: 100%;
+        width: 100%;                                                /* Beide kaarten moeten */
         height: 100%;
     }
 
     .flipCardFront {
-        color: black;
+        color: black;                                             /* Deze regel is nog overgebleven vanuit de test fase van dit onderdeel haha */
     }
 
     .flipCardBack {
-        color: white;
-        left: 100%;
+        color: white;                                             /* Deze regel is nog overgebleven vanuit de test fase van dit onderdeel haha */
+        left: 100%;                                                 /* De achterkant moet in eerste instantie volledig buiten het scherm zijn. */ 
     }
 
 
     .planetMars { 
-        height: 35%;
+        height: 35%;                                                /* De hoogte-breedte verhouding van de kaarten is voor elke schermgrootte net ietsje anders dus het hoogtepercentage moet telkens een ander getal zijn om het mooi en passend te maken voor de schermgrootte. */
         margin-bottom: 4%;
         margin-left: 4%;
     }
@@ -85,22 +150,31 @@
     }
 
     .frontButton {
-        display: block;
+        display: block;                                             /* In het scherm voor de smartphone is er vanwege de ruimtelijke indeling een knop op de 'voorkant' van de kaart. Op de schermen voor de tablet en desktop wordt hover gebruikt en dan móét de knop wel op de achterkant staan, want anders kan hij niet gebruikt worden. */
     }
 
     .backButton {
-        display: none;
+        display: none;                                              /* In het scherm voor de smartphone is er vanwege de ruimtelijke indeling een knop op de 'voorkant' van de kaart. Op de schermen voor de tablet en desktop wordt hover gebruikt en dan móét de knop wel op de achterkant staan, want anders kan hij niet gebruikt worden. */
     }
 
     .myWebsite {
-        display: none;
+        display: none;                                              /* Deze extra regel was later toegevoegd maar er bleek hiervoor geen ruimte te zijn in het scherm voor de smartphone */
     }
 
     .slideForMore {
-        display: block;
+        display: block;                                             /* De tooltip 'slide for more...' is op de smartphone te zien. */
     }
 
     .tapForMore, .hoverForMore {
-        display: none;
+        display: none;                                              /* De andere mogelijke tooltips niet. */
+    }
+
+    .grid-container {
+        width: 80%;
+        top: 10%;
+    }
+
+    #gauge_div {
+        width: 80vw;                                                /* Deze vaste breedte in vw zorgt dat de grafiek niet raar gaat doen door ineens uit het midden te staan of ineens heel klein of groot te worden terwijl dat helemaal niet hoort. Nu is hij altijd deze grootte op de smartphone schermen. */
     }
 }

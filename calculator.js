@@ -1,4 +1,6 @@
-function chooseDistance(clicked_id) {
+// Dit bestand is uiteindelijk niet meer gebruikt.
+
+function chooseDistance() {
     var distance = '';
     var nameDistance = '';
     // Switch 1: Keuze uit diameter van Mars, kortste afstand tot de aarde (0,557*10^8 km) en langste afstand tot de aarde (4,013*10^8 km)
